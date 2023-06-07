@@ -1,10 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Category</h1>
-    <p>The category name is: {{ $category->name }}</p>
+    <h1 class="mt-2">Category</h1>
+    <p>Categoria: {{ $category->name }}</p>
+
+    <h3>Progetti di questa categoria:</h3>
     @foreach ($posts as $post)
         <p>{{ $post->title }}</p>
-        <p>{{ $post->image }}</p>
+        <img src="{{ $post->image }}" alt="{{ $post->title }}">
     @endforeach
 @endsection

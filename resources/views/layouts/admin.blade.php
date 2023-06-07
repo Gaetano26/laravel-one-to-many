@@ -20,24 +20,19 @@
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
 </head>
+   @include('partials.navbar')
 
-<body id="page-top">
-    <div id="wrapper" class="d-flex">
-
-        @include('partials.navbar')
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
-            <div id="content" class="ms-5">
+            <div id="content" class="ms-5 mt-5">
                 <div class="container-fluid">
                     @yield('content')
                 </div>
             </div>
 
-        </div>
 
-    </div>
+
+
 </body>
 
 </html>
