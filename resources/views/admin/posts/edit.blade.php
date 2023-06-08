@@ -2,10 +2,10 @@
 
 @section('content')
     <h1>Edit Project: {{ $post->title }}</h1>
-    <form action="{{ route('admin.posts.update', $post->slug) }}" method="POST" enctype="multipart/form-data">
+    <form class="row flex-column" action="{{ route('admin.posts.update', $post->slug) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        <div class="mb-3">
+        <div class="col mb-3">
             <label for="title">Title</label>
             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title"
                 required maxlength="150" minlength="3" value="{{ old('title', $post->title) }}">
@@ -13,7 +13,7 @@
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
-        <div class="mb-3">
+        <div class="col mb-3">
             <label for="image">Image</label>
             <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image"
                 maxlength="255" value="{{ old('image', $post->image) }}">
@@ -21,7 +21,7 @@
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
-        <div class="mb-3">
+        <div class="col mb-3">
             <label for="category_id">Category</label>
             <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">
                 <option value="">Seleziona categoria</option>
@@ -36,16 +36,16 @@
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
-        <div class="mb-3">
+        <div class="col mb-3">
             <label for="body">Body</label>
             <textarea name="body" id="body" rows="10" class="form-control @error('body') is-invalid @enderror">{{ old('body', $post->body) }}</textarea>
             @error('body')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
-        <div class="form-group">
+        <div class="col form-group d-flex gap-4"">
             <p>Seleziona i Tag:</p>
-            <div class="d-flex gap-4">
+
                     @foreach ($tags as $tag)
                         <div>
                             @if ($errors->any())
@@ -61,13 +61,13 @@
                     @error('tags')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-            </div>
+
 
         </div>
-        <div class="my-4">
-            <button type="submit" class="btn btn-success">Save</button>
-           <button type="reset" class="btn btn-primary">Reset</button>
-        </div>
+        <div class="d-flex gap-3 my-4">
+            <button type="submit" class="btn btn-success w-10">Save</button>
+            <button type="reset" class="btn btn-primary w-10">Reset</button>
+       </div>
 
     </form>
     <script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>

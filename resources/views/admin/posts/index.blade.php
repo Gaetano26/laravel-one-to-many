@@ -10,7 +10,7 @@
             {{ session()->get('message') }}
         </div>
     @endif
-    <table class="table-responsive-xl">
+    <table class="table">
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -37,7 +37,7 @@
                         <form action="{{ route('admin.posts.destroy', $post->slug) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type='submit' class="delete-button" data-item-title="{{ $post->title }}"> <i
+                            <button type='submit' class="delete-button btn btn-success" data-item-title="{{ $post->title }}"> <i
                                     class="fa-solid fa-trash"></i></button>
                         </form>
                     </td>
