@@ -10,7 +10,7 @@
             {{ session()->get('message') }}
         </div>
     @endif
-    <table class="table">
+    <table class="table-responsive-xl">
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -32,7 +32,7 @@
                         {{ $post->category ? $post->category->name : 'Senza categoria' }}
                     </td>
                     <td>{{ $post->created_at }}</td>
-                    <td class="d-flex gap-2"><a href="{{ route('admin.posts.show', $post->slug) }}" class="btn btn-primary text-white"><i class="fa-solid fa-eye"></i></a>
+                    <td class="d-flex py-4 ps-3 gap-2"><a href="{{ route('admin.posts.show', $post->slug) }}" class="btn btn-primary text-white"><i class="fa-solid fa-eye"></i></a>
                         <a href="{{ route('admin.posts.edit', $post->slug) }}" class="btn btn-warning text-white"><i class="fa-solid fa-pencil"></i></a>
                         <form action="{{ route('admin.posts.destroy', $post->slug) }}" method="POST">
                             @csrf

@@ -48,6 +48,10 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                             Categories
                         </a>
+                        <a class="nav-link" href="{{ route('admin.tags.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            Tags
+                        </a>
 
                 </div>
                 <div class="sb-sidenav-footer">

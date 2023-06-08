@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Tag;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use Doctrine\DBAL\Schema\View;
@@ -35,7 +36,8 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.posts.create', compact('categories'));
+        $tags = Tag::all();
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -57,6 +59,11 @@ class PostController extends Controller
         }
 
         $post = Post::create($data);
+
+
+        if ($request->has('tags')) {
+            $post->tags()->attach($request->tags);
+        }
         return redirect()->route('admin.posts.show', $post->slug);
     }
 
@@ -80,7 +87,8 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::all();
-        return view('admin.posts.edit', compact('post', 'categories'));
+        $tags = Tag::all();
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -105,6 +113,11 @@ class PostController extends Controller
       }
 
         $post->update($data);
+        if ($request->has('tags')) {
+            $post->tags()->sync($request->tags);
+        } else {
+            $post->tags()->sync([]);
+        }
         return redirect()->route('admin.posts.show', $post->slug)->with('message', 'Il post è stato aggiornato');
     }
 

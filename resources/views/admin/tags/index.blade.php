@@ -1,24 +1,24 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Categories list</h1>
+    <h1>Tag list</h1>
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Created at</th>
-                <th scope="col">Tools</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($categories as $category)
+            @foreach ($tags as $tag)
                 <tr>
-                    <th scope="row">{{ $category->id }}</th>
-                    <td>{{ $category->name }}</td>
-                    <td>{{ $category->created_at }}</td>
+                    <th scope="row">{{ $tag->id }}</th>
+                    <td>{{ $tag->name }}</td>
+                    <td>{{ $tag->created_at }}</td>
                     <td>
-                        <a href="{{ route('admin.categories.show', $category->slug) }}">Show</a>
+                        <a href="{{ route('admin.tags.show', $tag->slug) }}">Show</a>
                     </td>
                 </tr>
             @endforeach

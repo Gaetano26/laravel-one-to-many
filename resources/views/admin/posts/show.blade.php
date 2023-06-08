@@ -11,4 +11,13 @@
     <img src="{{ $post->image }}" alt="{{ $post->title }}">
     <h3 class="mt-3">Category: {{ $post->category ? $post->category->name : 'Senza categoria' }}</h3>
     <p>{!! $post->body !!}</p>
+
+    @if ($post->tags && count($post->tags) > 0)
+        <div>
+            @foreach ($post->tags as $tag)
+                <a href="{{ route('admin.tags.show', $tag->slug) }}"
+                    class="badge rounded-pill text-bg-info">{{ $tag->name }}</a>
+            @endforeach
+        </div>
+   @endif
 @endsection
