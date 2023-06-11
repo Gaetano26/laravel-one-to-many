@@ -22,6 +22,7 @@ class PostSeeder extends Seeder
             $newPost->title = $post['title'];
             $newPost->slug = Str::slug($post['title'], '-');
             $newPost->image = $post['image'];
+            $newPost->url = $post['url'];
             $newPost->body = $post['body'];
             $newPost->save();
         }

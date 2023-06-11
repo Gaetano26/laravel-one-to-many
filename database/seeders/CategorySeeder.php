@@ -16,14 +16,9 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
+
         $categories = [
-            "Html",
-            "Css",
-            "Javascript",
-            "Vue",
-            "NodeJs",
-            "Php",
-            "Laravel",
+            'layout', 'front-end', 'back-end', 'coding', 'back-office','front-office', 'full-stack'
         ];
 
         foreach ($categories as $category) {

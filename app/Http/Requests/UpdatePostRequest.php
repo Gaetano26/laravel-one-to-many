@@ -31,7 +31,7 @@ class UpdatePostRequest extends FormRequest
                 'max:150',
                 'min:3'
             ],
-            'image' => 'nullable|max:255',
+            'image' => 'nullable',
             'body' => 'nullable',
             'category_id' => 'nullable|exists:categories,id',
             'tags' => 'nullable|exists:tags,id'
@@ -45,7 +45,7 @@ class UpdatePostRequest extends FormRequest
             'title.unique:posts' => 'Questo titolo esiste già!',
             'title.max' => 'Il titolo deve essere lungo massimo :max caratteri!',
             'title.min' => 'Il titolo deve essere lungo almeno :min caratteri!',
-            'image.max' => 'La URL deve essere lungo massimo :max caratteri!'
+            'url.max' => 'La URL deve essere lungo massimo :max caratteri!'
         ];
     }
 }

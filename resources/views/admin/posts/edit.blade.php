@@ -22,6 +22,14 @@
             @enderror
         </div>
         <div class="col mb-3">
+            <label for="url">Url</label>
+            <input type="url" class="form-control @error('url') is-invalid @enderror" name="url" id="url"
+                maxlength="255" value="{{ old('url', $post->url) }}">
+            @error('url')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="col mb-3">
             <label for="category_id">Category</label>
             <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">
                 <option value="">Seleziona categoria</option>

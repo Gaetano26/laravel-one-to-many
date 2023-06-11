@@ -16,7 +16,13 @@ class TagSeeder extends Seeder
      */
     public function run()
     {
-        $tags = ['layout', 'front-end', 'back-end', 'coding', 'back-office','front-office'];
+        $tags = [ "Html",
+        "Css",
+        "Javascript",
+        "Vue",
+        "NodeJs",
+        "Php",
+        "Laravel",];
         foreach ($tags as $tag) {
             $newTag = new Tag();
             $newTag->name = $tag;

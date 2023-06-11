@@ -25,7 +25,7 @@
 
             <!-- Main Content -->
             <div id="content" class="ms-5 mt-5">
-                <div class="container-fluid">
+                <div class="container-fluid pt-3">
                     @yield('content')
                 </div>
             </div>
